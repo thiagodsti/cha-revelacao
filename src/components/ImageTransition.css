@@ -1,0 +1,19 @@
+/* ImageTransition.css */
+.fading {
+  animation: fadeOutIn 1s ease;
+}
+
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    /* A imagem fica totalmente transparente no meio da animação */
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
