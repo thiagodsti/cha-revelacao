@@ -162,8 +162,17 @@ function Questions() {
               handleOptionSelect={(question, optionSelected) => {
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
                 question.answer = optionSelected;
-                const newAnswers = [...answers, question];
-                setAnswersSelected(newAnswers);
+                setAnswersSelected((prevAnswers) => {
+                  const existingAnswerIndex = prevAnswers.findIndex(
+                    (answer) => answer.questionId === question.questionId
+                  );
+                  if (existingAnswerIndex !== -1) {
+                    const updatedAnswers = [...prevAnswers];
+                    updatedAnswers[existingAnswerIndex] = question;
+                    return updatedAnswers;
+                  }
+                  return [...prevAnswers, question];
+                });
               }}
               selected={answers.find(
                 (a) => a.questionId === question.questionId

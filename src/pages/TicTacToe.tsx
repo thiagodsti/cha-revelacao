@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ImageTransition from "../components/ImageTransition";
 import styled from "styled-components";
+import TypingEffect from "../components/TypingEffect";
+import FinalMessage from "../components/FinalMessage";
 
 const Layout = styled("div")`
   display: flex;
@@ -78,7 +80,7 @@ function TicTacToe() {
   return (
     <Layout>
       {showFinalMessage ? (
-        <div className="fade-in-message">It's a baby</div>
+        <FinalMessage />
       ) : (
         <>
           <div>
