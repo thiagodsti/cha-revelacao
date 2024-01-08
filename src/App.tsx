@@ -22,7 +22,7 @@ const Layout = styled("div")`
 function App() {
   return (
     <Layout>
-      <a href="/tictactoe">Começar aqui</a>
+      <a href="/questions">Começar aqui</a>
     </Layout>
   );
 }

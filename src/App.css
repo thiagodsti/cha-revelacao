@@ -4,3 +4,26 @@
   margin: 0;
   padding: 0;
 }
+
+.question-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.question-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.question-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.question-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 300ms;
+}
+

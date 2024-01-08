@@ -4,11 +4,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
 import TicTacToe from "./pages/TicTacToe.tsx";
+import Questions from "./pages/Questions.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/questions",
+    element: <Questions />,
   },
   {
     path: "/tictactoe",
