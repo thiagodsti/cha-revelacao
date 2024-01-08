@@ -67,7 +67,7 @@ function TicTacToe() {
     if (counter === 9) {
       const timer = setTimeout(() => {
         setShowFinalMessage(true);
-      }, 1000);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [counter]);

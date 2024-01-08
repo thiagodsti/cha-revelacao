@@ -62,10 +62,8 @@ function ImageTransition({ image, onClick }: ImageTransitionProps) {
     if (currentImage) return;
     onClick();
     setIsTransitioning(true);
-    // setTimeout(() => {
     setCurrentImage(image);
     setIsTransitioning(false);
-
   };
 
   return (
