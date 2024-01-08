@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ImageTransition from "../components/ImageTransition";
 import styled from "styled-components";
-import TypingEffect from "../components/TypingEffect";
 import FinalMessage from "../components/FinalMessage";
 
 const Layout = styled("div")`

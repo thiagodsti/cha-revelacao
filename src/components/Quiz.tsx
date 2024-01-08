@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { Question, QuestionOption } from "../pages/Questions";
 
