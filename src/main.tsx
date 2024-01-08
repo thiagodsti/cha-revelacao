@@ -1,12 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import App from './App.tsx'
-import './index.css'
-import JogoVelha from './JogoVelha.tsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.tsx";
+import "./index.css";
+import TicTacToe from "./pages/TicTacToe.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,13 +11,13 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/jogo-velha",
-    element: <JogoVelha />,
+    path: "/tictactoe",
+    element: <TicTacToe />,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

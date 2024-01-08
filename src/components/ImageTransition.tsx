@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState } from "react";
 import styled from "styled-components";
-import './ImageTransition.css';
+import "./ImageTransition.css";
 
-const Image = styled('img')`
-  width: 125px;
-  height: 125px;
+const Image = styled("img")`
+  width: 6rem;
+  height: 6rem;
   background-color: white;
-  padding: 10px;
+  padding: 4px;
   cursor: pointer;
+  border-radius: 20%;
+  object-fit: cover;
+`;
+
+const ImageFrame = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12.5rem;
+  height: 12.5rem;
+  background-image: url("jogo-velha/bg-jogo-velha.jpg");
+  background-size: cover;
+  background-position: center;
 `;
 
 interface ImageTransitionProps {
@@ -16,7 +29,6 @@ interface ImageTransitionProps {
   onClick: () => void;
 }
 function ImageTransition({ from, to, onClick }: ImageTransitionProps) {
-  //const images = ['image1.png', 'image2.png']; // Substitua com seus nomes de imagem
   const [currentImage, setCurrentImage] = useState(from);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -25,19 +37,23 @@ function ImageTransition({ from, to, onClick }: ImageTransitionProps) {
     onClick();
     setIsTransitioning(true);
     setTimeout(() => {
-      // Aqui você troca a imagem e termina a transição
       setCurrentImage(to);
       setIsTransitioning(false);
-    }, 500); // 1000ms = 1 segundo para o delay da transição
+    }, 500);
   };
 
   return (
-    <Image className={isTransitioning ? 'fading' : ''}
-      style={{ cursor: currentImage === from ? 'pointer' : 'default' }}
-      src={currentImage} width={'125px'} height={'125px'}
-      onClick={() => handleImageClick()} />
-  )
-
+    <ImageFrame>
+      <Image
+        className={isTransitioning ? "fading" : ""}
+        style={{ cursor: currentImage === from ? "pointer" : "default" }}
+        src={currentImage}
+        width={"125px"}
+        height={"125px"}
+        onClick={() => handleImageClick()}
+      />
+    </ImageFrame>
+  );
 }
 
 export default ImageTransition;
