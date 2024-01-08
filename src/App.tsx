@@ -8,12 +8,11 @@ const Layout = styled("div")`
   align-items: center;
   height: 100vh;
 
-  background-image: url("background2.jpg");
+  background-image: url("bg_inicial.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
-    // Estilos para telas menores (como tablets e smartphones)
     padding: 20px;
     height: auto;
   }

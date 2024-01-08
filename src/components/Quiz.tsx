@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Question, QuestionOption } from "../pages/Questions";
+import { Question, QuestionOption } from "../pages/QuestionsPage";
 
 const QuestionContainer = styled.div`
   padding: 20px;
