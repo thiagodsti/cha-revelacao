@@ -10,6 +10,12 @@ const Image = styled("img")`
   cursor: pointer;
   border-radius: 20%;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    // Estilos para telas menores (como tablets e smartphones)
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 const ImageFrame = styled("div")`
@@ -21,6 +27,12 @@ const ImageFrame = styled("div")`
   background-image: url("jogo-velha/bg-jogo-velha.jpg");
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 768px) {
+    // Estilos para telas menores (como tablets e smartphones)
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 `;
 
 interface ImageTransitionProps {
@@ -48,8 +60,6 @@ function ImageTransition({ from, to, onClick }: ImageTransitionProps) {
         className={isTransitioning ? "fading" : ""}
         style={{ cursor: currentImage === from ? "pointer" : "default" }}
         src={currentImage}
-        width={"125px"}
-        height={"125px"}
         onClick={() => handleImageClick()}
       />
     </ImageFrame>
