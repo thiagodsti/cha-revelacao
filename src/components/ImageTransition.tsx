@@ -28,6 +28,10 @@ const ImageFrame = styled("div")`
   background-size: cover;
   background-position: center;
 
+  &:hover {
+    background-image: url("jogo-velha/bg-jogo-velha-hover.jpg");
+  }
+
   @media (max-width: 768px) {
     // Estilos para telas menores (como tablets e smartphones)
     width: 2.5rem;
@@ -35,33 +39,44 @@ const ImageFrame = styled("div")`
   }
 `;
 
+const ImageBlank = styled("div")`
+  width: 12.5rem;
+  height: 12.5rem;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    // Estilos para telas menores (como tablets e smartphones)
+    width: 1rem;
+    height: 1rem;
+  }
+`;
+
 interface ImageTransitionProps {
-  from: string;
-  to: string;
+  image: string;
   onClick: () => void;
 }
-function ImageTransition({ from, to, onClick }: ImageTransitionProps) {
-  const [currentImage, setCurrentImage] = useState(from);
+function ImageTransition({ image, onClick }: ImageTransitionProps) {
+  const [currentImage, setCurrentImage] = useState<string>();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleImageClick = () => {
-    if (currentImage !== from) return;
+    if (currentImage) return;
     onClick();
     setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentImage(to);
-      setIsTransitioning(false);
-    }, 500);
+    // setTimeout(() => {
+    setCurrentImage(image);
+    setIsTransitioning(false);
+
   };
 
   return (
     <ImageFrame>
-      <Image
+      {currentImage ? <Image
         className={isTransitioning ? "fading" : ""}
-        style={{ cursor: currentImage === from ? "pointer" : "default" }}
+        style={{ cursor: "default" }}
         src={currentImage}
-        onClick={() => handleImageClick()}
-      />
+      /> : <ImageBlank onClick={() => handleImageClick()} />}
+
+
     </ImageFrame>
   );
 }

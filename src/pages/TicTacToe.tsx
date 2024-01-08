@@ -23,40 +23,40 @@ const Layout = styled("div")`
 function TicTacToe() {
   const initialImages = [
     {
-      imageGame: "baby/teto.png",
-      imagePerson: "baby/mini-tulio.png",
+      imageGame: "baby/teto.jpg",
+      imagePerson: "jogo-velha/mini-tulio.jpg",
     },
     {
-      imageGame: "baby/babador.png",
-      imagePerson: "baby/mini-lais.png",
+      imageGame: "baby/babador.jpg",
+      imagePerson: "jogo-velha/mini-lais.jpg",
     },
     {
-      imageGame: "baby/baby.png",
-      imagePerson: "baby/mini-tulio.png",
+      imageGame: "baby/baby.jpg",
+      imagePerson: "jogo-velha/mini-tulio.jpg",
     },
     {
-      imageGame: "baby/berco.png",
-      imagePerson: "baby/mini-tulio.png",
+      imageGame: "baby/berco.jpg",
+      imagePerson: "jogo-velha/mini-tulio.jpg",
     },
     {
-      imageGame: "baby/carrinho.png",
-      imagePerson: "baby/mini-lais.png",
+      imageGame: "baby/carrinho.jpg",
+      imagePerson: "jogo-velha/mini-lais.jpg",
     },
     {
-      imageGame: "baby/chacoalho.png",
-      imagePerson: "baby/mini-lais.png",
+      imageGame: "baby/chacoalho.jpg",
+      imagePerson: "jogo-velha/mini-lais.jpg",
     },
     {
-      imageGame: "baby/chupeta.png",
-      imagePerson: "baby/mini-lais.png",
+      imageGame: "baby/chupeta.jpg",
+      imagePerson: "jogo-velha/mini-lais.jpg",
     },
     {
-      imageGame: "baby/mamadeira.png",
-      imagePerson: "baby/mini-tulio.png",
+      imageGame: "baby/mamadeira.jpg",
+      imagePerson: "jogo-velha/mini-tulio.jpg",
     },
     {
-      imageGame: "baby/roupa.png",
-      imagePerson: "baby/mini-tulio.png",
+      imageGame: "baby/roupa.jpg",
+      imagePerson: "jogo-velha/mini-tulio.jpg",
     },
   ];
 
@@ -91,8 +91,7 @@ function TicTacToe() {
             {initialImages.map((image, index) => (
               <ImageTransition
                 key={index}
-                from={image.imageGame}
-                to={image.imagePerson}
+                image={image.imagePerson}
                 onClick={() => handleImageClick()}
               />
             ))}
