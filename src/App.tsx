@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 
@@ -21,7 +22,15 @@ const Layout = styled("div")`
 function App() {
   return (
     <Layout>
-      <a href="/questions">Começar aqui</a>
+      <a style={{
+        backgroundColor: "transparent",
+        color: "transparent",
+        border: "none",
+        cursor: "default",
+        position: "absolute",
+        top: "0",
+        left: "0",
+      }} href="/questions">Começar aqui</a>
     </Layout>
   );
 }
