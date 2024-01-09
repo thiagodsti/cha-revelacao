@@ -42,6 +42,12 @@ const CenteredContent = styled.div`
   height: 100%;
 `;
 
+const P = styled.p`
+  font-size: 5rem;
+  text-align: center;
+  margin: 0;
+`;
+
 function ModalTroll({ show }: ModalTrollProps) {
   const [counter, setCounter] = useState(3);
   const [showMessage, setShowMessage] = useState(false);
@@ -65,7 +71,7 @@ function ModalTroll({ show }: ModalTrollProps) {
           <BlinkText counterValue={counter}>{counter}</BlinkText>
         ) : (
           <>
-            <p>Acharam que seria tão fácil assim?</p>
+            <P>Did you really think it was going to be that easy?</P>
             <img src="trollface.png" alt="Troll Face"></img>
           </>
         )}
