@@ -130,17 +130,7 @@ function QuestionsPage() {
       )}
       <Modal show={showChallengeModal}>
         <p>Challenge</p>
-        <button
-          onClick={() => {
-            setShowChallengeModal(false);
-            setTimeout(() => {
-              setHighlightCorrect(false);
-              setCurrentQuestionIndex(currentQuestionIndex + 1);
-            }, 2000);
-          }}
-        >
-          Continuar
-        </button>
+        <button onClick={() => handleCloseChallengeModal()}>Continuar</button>
       </Modal>
     </Layout>
   );
