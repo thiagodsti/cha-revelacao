@@ -156,13 +156,13 @@ export const questions = [
       {
         key: "a",
         option: "Woman",
-        isCorrect: true,
+        isCorrect: false,
         questionParentId: "6",
       },
       {
         key: "b",
         option: "Man",
-        isCorrect: false,
+        isCorrect: true,
         questionParentId: "6",
       },
     ],

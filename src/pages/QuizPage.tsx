@@ -3,6 +3,7 @@ import Quiz from "../components/questions/Quiz";
 import { useState } from "react";
 import ModalTroll from "../components/ModalTroll";
 import { questions } from "../components/questions/questions";
+import Modal from "../components/Modal";
 
 const Layout = styled("div")`
   display: flex;
@@ -38,9 +39,24 @@ function QuestionsPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswersSelected] = useState<Question[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [showChallengeModal, setShowChallengeModal] = useState(false);
+  const [highlightCorrect, setHighlightCorrect] = useState(false);
 
   const handleOpenModal = () => {
     setShowModal(true);
+  };
+
+  const handleOpenChallengeModal = () => {
+    setHighlightCorrect(true);
+    setShowChallengeModal(true);
+  };
+
+  const handleCloseChallengeModal = () => {
+    setShowChallengeModal(false);
+    setTimeout(() => {
+      setHighlightCorrect(false);
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }, 2000);
   };
 
   const answersCorrect = answers.filter((answer) => {
@@ -68,13 +84,22 @@ function QuestionsPage() {
                   }
                   return [...prevAnswers, question];
                 });
-                setTimeout(() => {
-                  setCurrentQuestionIndex(currentQuestionIndex + 1);
-                }, 5000);
               }}
               selected={answers.find(
                 (a) => a.questionId === question.questionId
               )}
+              onAnimationEnd={() => {
+                if (question.questionId == "6") {
+                  handleOpenChallengeModal();
+                } else {
+                  setHighlightCorrect(true);
+                  setTimeout(() => {
+                    setHighlightCorrect(false);
+                    setCurrentQuestionIndex(currentQuestionIndex + 1);
+                  }, 2000);
+                }
+              }}
+              highlightCorrect={highlightCorrect}
             />
           )
       )}
@@ -103,6 +128,20 @@ function QuestionsPage() {
           <ModalTroll show={showModal} />
         </div>
       )}
+      <Modal show={showChallengeModal}>
+        <p>Challenge</p>
+        <button
+          onClick={() => {
+            setShowChallengeModal(false);
+            setTimeout(() => {
+              setHighlightCorrect(false);
+              setCurrentQuestionIndex(currentQuestionIndex + 1);
+            }, 2000);
+          }}
+        >
+          Continuar
+        </button>
+      </Modal>
     </Layout>
   );
 }

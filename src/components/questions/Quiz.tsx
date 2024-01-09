@@ -30,6 +30,19 @@ const Option = styled.li`
   }
 `;
 
+const OptionSelected = styled.li`
+  display: flex;
+  align-items: baseline;
+  border-radius: 5px;
+  cursor: default;
+  transition: background-color 0.3s ease;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-width: 2px;
+  box-shadow: 0 0 10px gray;
+  border-radius: 10px;
+`;
+
 const Question = styled.p`
   font-size: 3rem;
   margin: 0;
@@ -60,17 +73,17 @@ const blinkEffect = keyframes`
   50% { opacity: 0; }
 `;
 
-// Styled component para a Imagem que vai piscar e alternar entre duas imagens
-const AnimatedImage = styled.img<{ blink: boolean }>`
+const AnimatedImage = styled.img.withConfig({
+  shouldForwardProp: (prop) => !["blink"].includes(prop),
+})<{ blink: boolean }>`
   width: 15rem;
   height: 15rem;
   animation: ${(props) =>
     props.blink
       ? css`
-          ${blinkEffect} 0.5s step-start 0s infinite
+          ${blinkEffect} 0.4s infinite
         `
       : "none"};
-  transition: opacity 0.5s ease-out;
 `;
 
 interface QuizProps {
@@ -80,12 +93,21 @@ interface QuizProps {
     question: Question,
     optionSelected: QuestionOption
   ) => void;
+  onAnimationEnd: () => void;
+  highlightCorrect?: boolean;
 }
 
 const correct = "questions/correct.jpg";
 const wrong = "questions/wrong.jpg";
+const maxAnimationTime = 4000;
 
-const Quiz = ({ question, handleOptionSelect, selected }: QuizProps) => {
+const Quiz = ({
+  question,
+  handleOptionSelect,
+  selected,
+  onAnimationEnd,
+  highlightCorrect = false,
+}: QuizProps) => {
   const [imageToShow, setImageToShow] = useState<string>(wrong);
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
@@ -93,29 +115,18 @@ const Quiz = ({ question, handleOptionSelect, selected }: QuizProps) => {
     if (selected) {
       setIsBlinking(true);
 
-      // Começa a alternar as imagens rapidamente
       let blinkInterval = setInterval(() => {
         setImageToShow((prevImage) =>
           prevImage === correct ? wrong : correct
         );
-      }, 500);
+      }, 400);
 
-      // Diminui a velocidade da alternância após um tempo
-      setTimeout(() => {
-        clearInterval(blinkInterval);
-        blinkInterval = setInterval(() => {
-          setImageToShow((prevImage) =>
-            prevImage === correct ? wrong : correct
-          );
-        }, 1500);
-      }, 2000);
-
-      // Para a animação e mostra a imagem final
       setTimeout(() => {
         clearInterval(blinkInterval);
         setIsBlinking(false);
         setImageToShow(selected.answer?.isCorrect ? correct : wrong);
-      }, 4000);
+        onAnimationEnd();
+      }, maxAnimationTime);
 
       return () => clearInterval(blinkInterval);
     }
@@ -140,21 +151,38 @@ const Quiz = ({ question, handleOptionSelect, selected }: QuizProps) => {
           src="questions/babies.jpg"
         />
         <Options>
-          {question.options.map((option, index) => (
-            <Option
-              key={index}
-              onClick={() => handleOptionSelect(question, option)}
-              style={{
-                borderColor:
-                  selected && selected.answer?.key === option.key
-                    ? "green"
-                    : "white",
-              }}
-            >
-              <OptionKey>{`${option.key} )`}</OptionKey>
-              <OptionText>{option.option}</OptionText>
-            </Option>
-          ))}
+          {question.options.map((option, index) => {
+            const isSelected = selected && selected.answer?.key == option.key;
+            const isCorrectHighlighted = highlightCorrect && option.isCorrect;
+
+            let borderColor = "none";
+            if (highlightCorrect) {
+              if (option.isCorrect) {
+                borderColor = "3px solid green";
+              } else if (isSelected && !option.isCorrect) {
+                borderColor = "3px solid red";
+              }
+            }
+
+            if (isSelected || isCorrectHighlighted) {
+              return (
+                <OptionSelected key={index} style={{ border: borderColor }}>
+                  <OptionKey>{`${option.key} )`}</OptionKey>
+                  <OptionText>{option.option}</OptionText>
+                </OptionSelected>
+              );
+            } else {
+              return (
+                <Option
+                  key={index}
+                  onClick={() => handleOptionSelect(question, option)}
+                >
+                  <OptionKey>{`${option.key} )`}</OptionKey>
+                  <OptionText>{option.option}</OptionText>
+                </Option>
+              );
+            }
+          })}
         </Options>
         {selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
       </div>
