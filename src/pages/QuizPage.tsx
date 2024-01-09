@@ -11,6 +11,7 @@ const Layout = styled("div")`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  max-height: 100vh;
   background-image: url("background.jpg");
   background-size: cover;
   background-repeat: no-repeat;

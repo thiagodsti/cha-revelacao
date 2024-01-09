@@ -151,7 +151,7 @@ export const questions = [
   },
   {
     questionId: "6",
-    question: "Who change the diaper faster?",
+    question: "Which gender can change a baby's diaper faster?",
     options: [
       {
         key: "a",
@@ -169,7 +169,7 @@ export const questions = [
   },
   {
     questionId: "7",
-    question: "How many dipers per month during the first 2 months?",
+    question: "How many diapers can a baby change during the first two months?",
     options: [
       {
         key: "a",

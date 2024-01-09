@@ -3,15 +3,10 @@ import { Question, QuestionOption } from "../../pages/QuizPage";
 import { useEffect, useState } from "react";
 
 const QuestionContainer = styled.div`
-  padding: 20px;
-  margin-left: 10rem;
-  text-align: left;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-width: 60rem;
+  width: 70%;
+  display: grid;
+  height: 80vh;
+  grid-template-columns: 1fr 1fr 1fr;
 `;
 
 const Option = styled.li`
@@ -115,7 +110,7 @@ const Quiz = ({
     if (selected) {
       setIsBlinking(true);
 
-      let blinkInterval = setInterval(() => {
+      const blinkInterval = setInterval(() => {
         setImageToShow((prevImage) =>
           prevImage === correct ? wrong : correct
         );
@@ -134,22 +129,16 @@ const Quiz = ({
 
   return (
     <QuestionContainer>
-      <Question>{question.question}</Question>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          textAlign: "center",
-          alignItems: "center",
-        }}
-      >
-        <img
+      <div style={{ background: 'pink', gridColumnStart: 1, gridColumnEnd: 2, height: 'inherit', textAlign: 'end', verticalAlign: 'center'}}>
+      <img
           style={{
-            width: "20rem",
-            height: "20rem",
+            height: '60%',
           }}
           src="questions/babies.jpg"
         />
+      </div>
+      <div style={{gridColumnStart: 2, gridColumnEnd: 4}}>
+      <Question>{question.question}</Question>
         <Options>
           {question.options.map((option, index) => {
             const isSelected = selected && selected.answer?.key == option.key;
@@ -185,7 +174,7 @@ const Quiz = ({
           })}
         </Options>
         {selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
-      </div>
+        </div>
     </QuestionContainer>
   );
 };
