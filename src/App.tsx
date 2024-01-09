@@ -8,7 +8,7 @@ const Layout = styled("div")`
   align-items: center;
   height: 100vh;
 
-  background-image: url("bg_inicial.jpg");
+  background-image: url("bg-initial.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -21,15 +21,20 @@ const Layout = styled("div")`
 function App() {
   return (
     <Layout>
-      <a style={{
-        backgroundColor: "transparent",
-        color: "transparent",
-        border: "none",
-        cursor: "default",
-        position: "absolute",
-        top: "0",
-        left: "0",
-      }} href="/questions">Começar aqui</a>
+      <a
+        style={{
+          backgroundColor: "transparent",
+          color: "transparent",
+          border: "none",
+          cursor: "default",
+          position: "absolute",
+          top: "0",
+          left: "0",
+        }}
+        href="/questions"
+      >
+        Começar aqui
+      </a>
     </Layout>
   );
 }

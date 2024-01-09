@@ -1,8 +1,21 @@
 import { useState } from "react";
-import styled from "styled-components";
-import "./ImageTransition.css";
+import styled, { css, keyframes } from "styled-components";
 
-const Image = styled("img")`
+const fadeOutInAnimation = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const Image = styled.img.withConfig({
+  shouldForwardProp: (prop) => !["isTransitioning"].includes(prop),
+})<{ isTransitioning: boolean }>`
   width: 6rem;
   height: 6rem;
   background-color: white;
@@ -10,6 +23,12 @@ const Image = styled("img")`
   cursor: pointer;
   border-radius: 20%;
   object-fit: cover;
+
+  ${({ isTransitioning }) =>
+    isTransitioning &&
+    css`
+      animation: ${fadeOutInAnimation} 1s ease;
+    `}
 
   @media (max-width: 768px) {
     // Estilos para telas menores (como tablets e smartphones)
@@ -24,16 +43,15 @@ const ImageFrame = styled("div")`
   align-items: center;
   width: 12.5rem;
   height: 12.5rem;
-  background-image: url("jogo-velha/bg-jogo-velha.jpg");
+  background-image: url("tictactoe/bg-tictactoe.jpg");
   background-size: cover;
   background-position: center;
 
   &:hover {
-    background-image: url("jogo-velha/bg-jogo-velha-hover.jpg");
+    background-image: url("tictactoe/bg-tictactoe-hover.jpg");
   }
 
   @media (max-width: 768px) {
-    // Estilos para telas menores (como tablets e smartphones)
     width: 2.5rem;
     height: 2.5rem;
   }
@@ -44,7 +62,6 @@ const ImageBlank = styled("div")`
   height: 12.5rem;
   cursor: pointer;
   @media (max-width: 768px) {
-    // Estilos para telas menores (como tablets e smartphones)
     width: 1rem;
     height: 1rem;
   }
@@ -68,13 +85,15 @@ function ImageTransition({ image, onClick }: ImageTransitionProps) {
 
   return (
     <ImageFrame>
-      {currentImage ? <Image
-        className={isTransitioning ? "fading" : ""}
-        style={{ cursor: "default" }}
-        src={currentImage}
-      /> : <ImageBlank onClick={() => handleImageClick()} />}
-
-
+      {currentImage ? (
+        <Image
+          isTransitioning={isTransitioning}
+          style={{ cursor: "default" }}
+          src={currentImage}
+        />
+      ) : (
+        <ImageBlank onClick={() => handleImageClick()} />
+      )}
     </ImageFrame>
   );
 }

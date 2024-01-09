@@ -9,7 +9,10 @@ interface TypingEffectProps {
   onAnimationEnd?: () => void;
 }
 
-const TypingText = styled.div<{
+const TypingText = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    !["steps", "blink", "blinkOnEnd", "typingDuration"].includes(prop),
+})<{
   steps: number;
   blink: boolean;
   blinkOnEnd: boolean;

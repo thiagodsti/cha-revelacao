@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ImageTransition from "../components/ImageTransition";
+import ImageTransition from "../components/tictactoe/Tile";
 import styled from "styled-components";
 import FinalMessage from "../components/FinalMessage";
 
@@ -22,42 +22,16 @@ const Layout = styled("div")`
 
 function TicTacToe() {
   const initialImages = [
-    {
-      imageGame: "baby/teto.jpg",
-      imagePerson: "jogo-velha/mini-tulio.jpg",
-    },
-    {
-      imageGame: "baby/babador.jpg",
-      imagePerson: "jogo-velha/mini-lais.jpg",
-    },
-    {
-      imageGame: "baby/baby.jpg",
-      imagePerson: "jogo-velha/mini-tulio.jpg",
-    },
-    {
-      imageGame: "baby/berco.jpg",
-      imagePerson: "jogo-velha/mini-tulio.jpg",
-    },
-    {
-      imageGame: "baby/carrinho.jpg",
-      imagePerson: "jogo-velha/mini-lais.jpg",
-    },
-    {
-      imageGame: "baby/chacoalho.jpg",
-      imagePerson: "jogo-velha/mini-lais.jpg",
-    },
-    {
-      imageGame: "baby/chupeta.jpg",
-      imagePerson: "jogo-velha/mini-lais.jpg",
-    },
-    {
-      imageGame: "baby/mamadeira.jpg",
-      imagePerson: "jogo-velha/mini-tulio.jpg",
-    },
-    {
-      imageGame: "baby/roupa.jpg",
-      imagePerson: "jogo-velha/mini-tulio.jpg",
-    },
+    "tictactoe/mini-tulio.jpg",
+    "tictactoe/mini-lais.jpg",
+    "tictactoe/mini-tulio.jpg",
+
+    "tictactoe/mini-tulio.jpg",
+    "tictactoe/mini-lais.jpg",
+    "tictactoe/mini-lais.jpg",
+    "tictactoe/mini-lais.jpg",
+    "tictactoe/mini-tulio.jpg",
+    "tictactoe/mini-tulio.jpg",
   ];
 
   const [counter, setCounter] = useState(0);
@@ -91,7 +65,7 @@ function TicTacToe() {
             {initialImages.map((image, index) => (
               <ImageTransition
                 key={index}
-                image={image.imagePerson}
+                image={image}
                 onClick={() => handleImageClick()}
               />
             ))}
