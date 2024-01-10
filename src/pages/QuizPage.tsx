@@ -3,7 +3,7 @@ import Quiz from "../components/questions/Quiz";
 import { useState } from "react";
 import ModalTroll from "../components/ModalTroll";
 import { questions } from "../components/questions/questions";
-import Modal from "../components/Modal";
+import ModalChallenge from "../components/ModalChallenge";
 
 const Layout = styled("div")`
   display: flex;
@@ -129,10 +129,10 @@ function QuestionsPage() {
           <ModalTroll show={showModal} />
         </div>
       )}
-      <Modal show={showChallengeModal}>
-        <p>Challenge</p>
-        <button onClick={() => handleCloseChallengeModal()}>Continuar</button>
-      </Modal>
+      <ModalChallenge
+        show={showChallengeModal}
+        onClick={handleCloseChallengeModal}
+      />
     </Layout>
   );
 }

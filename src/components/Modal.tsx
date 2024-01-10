@@ -31,7 +31,6 @@ const ModalContent = styled.div<ModalProps>`
   padding: 20px;
   border: 1px solid #888;
   border-radius: 10px;
-  width: 50%;
   animation: ${({ show }) =>
     show &&
     css`
