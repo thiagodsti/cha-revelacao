@@ -43,14 +43,14 @@ const OptionSelected = styled.li`
 `;
 
 const Question = styled.p`
-  font-size: 3rem;
+  font-size: 5rem;
   margin: 0;
   color: #d89d75;
   font-weight: bold;
 `;
 
 const OptionKey = styled.p`
-  font-size: 2rem;
+  font-size: 3rem;
   color: #f2c3a8;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,7 +58,7 @@ const OptionKey = styled.p`
 `;
 
 const OptionText = styled.p`
-  font-size: 1.6rem;
+  font-size: 2.6rem;
   color: #333;
 `;
 
@@ -74,7 +74,7 @@ const blinkEffect = keyframes`
 
 const AnimatedImage = styled.img.withConfig({
   shouldForwardProp: (prop) => !["blink"].includes(prop),
-})<{ blink: boolean }>`
+}) <{ blink: boolean }>`
   width: 15rem;
   height: 15rem;
   animation: ${(props) =>
@@ -133,17 +133,27 @@ const Quiz = ({
 
   return (
     <QuestionContainer>
-      <div style={{ alignSelf: 'center', gridColumnStart: 1, gridColumnEnd: 2, gridRowStart: 1, gridRowEnd: 3,  textAlign: 'end', width: 'fit-content', justifySelf: 'flex-end', height: 'inherit' }}>
-      <img
+      <div style={{
+        alignSelf: 'center',
+        gridColumnStart: 1,
+        gridColumnEnd: 2,
+        gridRowStart: 2,
+        gridRowEnd: 3,
+        textAlign: 'end',
+        width: 'fit-content',
+        justifySelf: 'flex-end',
+        height: 'inherit'
+      }}>
+        <img
           style={{
-             height: '60%',
-            paddingTop: '90%',
+            height: '60%',
+            paddingTop: '20%',
           }}
           src="questions/babies.jpg"
         />
       </div>
-      <div style={{gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 1, gridRowEnd: 3}}>
-      <Question>{question.question}</Question>
+      <div style={{ gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 1, gridRowEnd: 3 }}>
+        <Question>{question.question}</Question>
         <Options>
           {question.options.map((option, index) => {
             const isSelected = selected && selected.answer?.key == option.key;
@@ -180,7 +190,7 @@ const Quiz = ({
         </Options>
       </div>
       <div style={{ gridRowStart: 2, gridRowEnd: 3, gridColumnStart: 3 }}>
-        {!selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}  
+        {!selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
       </div>
     </QuestionContainer>
   );
