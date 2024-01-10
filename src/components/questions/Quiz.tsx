@@ -8,7 +8,7 @@ const QuestionContainer = styled.div`
   display: grid;
   height: 80vh;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 30% 70%;
 `;
 
 const Option = styled.li`
@@ -16,9 +16,9 @@ const Option = styled.li`
   align-items: center;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 4rem;
+  margin-top: 2rem;
   transition: background-color 0.3s ease;
-  padding: 2rem;
+  padding: 1rem;
   width: fit-content;
 
   &:hover {
@@ -33,24 +33,24 @@ const OptionSelected = styled.li`
   align-items: center;
   border-radius: 15px;
   cursor: default;
-  margin-top: 4rem;
+  margin-top: 2rem;
   transition: background-color 0.3s ease;
-  padding: 2rem;
+  padding: 1rem;
   border-width: 2px;
   box-shadow: 0 0 10px gray;
   border-radius: 10px;
   width: fit-content;
 `;
 
-const Question = styled.p`
-  font-size: 10rem;
+const QuestionTitle = styled.p`
+  font-size: 3.5rem;
   margin: 0;
   color: #d89d75;
   font-weight: bold;
 `;
 
 const OptionKey = styled.p`
-  font-size: 7rem;
+  font-size: 2rem;
   color: #f2c3a8;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,7 +58,7 @@ const OptionKey = styled.p`
 `;
 
 const OptionText = styled.p`
-  font-size: 5.6rem;
+  font-size: 1.6rem;
   color: #333;
 `;
 
@@ -141,19 +141,24 @@ const Quiz = ({
         gridRowEnd: 3,
         textAlign: 'end',
         width: 'fit-content',
-        justifySelf: 'flex-end',
-        height: 'inherit'
+        justifySelf: 'flex-end'
       }}>
         <img
           style={{
-            height: '60%',
-            paddingTop: '30%',
+            height: '350px',
           }}
           src="questions/babies.jpg"
         />
       </div>
-      <div style={{ gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 1, gridRowEnd: 3 }}>
-        <Question>{question.question}</Question>
+      <div style={{
+        gridColumnStart: 2,
+        gridColumnEnd: 4,
+        gridRowStart: 1,
+        gridRowEnd: 2,
+      }}>
+        <QuestionTitle>{question.question}</QuestionTitle>
+      </div>
+      <div style={{ gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 2, gridRowEnd: 3 }}>
         <Options>
           {question.options.map((option, index) => {
             const isSelected = selected && selected.answer?.key == option.key;

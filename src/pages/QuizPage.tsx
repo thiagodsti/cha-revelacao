@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Quiz from "../components/questions/Quiz";
 import { useState } from "react";
-import ModalTroll from "../components/ModalTroll";
 import { questions } from "../components/questions/questions";
 import ModalChallenge from "../components/ModalChallenge";
+import FinalResult from "../components/questions/FInalResult";
 
 const Layout = styled("div")`
   display: flex;
@@ -39,13 +39,10 @@ export interface QuestionOption {
 function QuestionsPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswersSelected] = useState<Question[]>([]);
-  const [showModal, setShowModal] = useState(false);
+
   const [showChallengeModal, setShowChallengeModal] = useState(false);
   const [highlightCorrect, setHighlightCorrect] = useState(false);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
 
   const handleOpenChallengeModal = () => {
     setHighlightCorrect(true);
@@ -105,29 +102,10 @@ function QuestionsPage() {
           )
       )}
       {currentQuestionIndex === questions.length && (
-        <div>
-          <div className="fade-in-message">
-            Você acertou {answersCorrect.length} de {questions.length} questões
-          </div>
-          {answersCorrect.length > questions.length * 0.7 && (
-            <div className="fade-in-message">
-              Parabéns vocês não vão precisar de nós!
-            </div>
-          )}
-          {answersCorrect.length <= questions.length * 0.7 &&
-            answersCorrect.length > questions.length * 0.3 && (
-              <div className="fade-in-message">
-                Estão na média, mas ainda precisam de nós!
-              </div>
-            )}
-          {answersCorrect.length <= questions.length * 0.3 && (
-            <div className="fade-in-message">
-              Pessoal vamos ter que vir aqui mais vezes.
-            </div>
-          )}
-          <button onClick={handleOpenModal}>Ver sexo do bebê</button>
-          <ModalTroll show={showModal} />
-        </div>
+        <FinalResult
+          totalCorrect={answersCorrect.length}
+          totalQuestions={questions.length}
+        />
       )}
       <ModalChallenge
         show={showChallengeModal}

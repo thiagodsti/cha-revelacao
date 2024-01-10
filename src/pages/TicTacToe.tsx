@@ -56,9 +56,6 @@ function TicTacToe() {
         <FinalMessage />
       ) : (
         <>
-          <div>
-            <h1>Jogo da Velha</h1>
-          </div>
           <div
             style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}
           >

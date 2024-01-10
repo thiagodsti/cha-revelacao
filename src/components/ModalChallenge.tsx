@@ -17,7 +17,6 @@ const ModalContainer = styled.div`
   position: relative;
   align-items: end;
   justify-content: end;
-  padding: 15rem;
 `;
 
 interface ModalChallengeProps {
@@ -35,7 +34,7 @@ function ModalChallenge({ show, onClick }: ModalChallengeProps) {
           alignItems: "center",
         }}
       >
-        <img src="questions/challenge.jpg" />
+        <img src="questions/challenge.jpg" height={'500px'} />
         <CloseButton onClick={onClick}>X</CloseButton>
       </ModalContainer>
     </Modal>
