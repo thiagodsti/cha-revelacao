@@ -43,14 +43,14 @@ const OptionSelected = styled.li`
 `;
 
 const Question = styled.p`
-  font-size: 8rem;
+  font-size: 10rem;
   margin: 0;
   color: #d89d75;
   font-weight: bold;
 `;
 
 const OptionKey = styled.p`
-  font-size: 5rem;
+  font-size: 7rem;
   color: #f2c3a8;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,7 +58,7 @@ const OptionKey = styled.p`
 `;
 
 const OptionText = styled.p`
-  font-size: 4.6rem;
+  font-size: 5.6rem;
   color: #333;
 `;
 
@@ -190,7 +190,7 @@ const Quiz = ({
         </Options>
       </div>
       <div style={{ gridRowStart: 2, gridRowEnd: 3, gridColumnStart: 3 }}>
-        {!selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
+        {selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
       </div>
     </QuestionContainer>
   );
