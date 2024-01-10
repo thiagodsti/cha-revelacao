@@ -16,7 +16,7 @@ const Option = styled.li`
   align-items: center;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 2rem;
   transition: background-color 0.3s ease;
   padding: 1rem;
   width: fit-content;
@@ -33,7 +33,7 @@ const OptionSelected = styled.li`
   align-items: center;
   border-radius: 5px;
   cursor: default;
-  margin-top: 1rem;
+  margin-top: 2rem;
   transition: background-color 0.3s ease;
   padding: 1rem;
   border-width: 2px;
