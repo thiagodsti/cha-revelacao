@@ -7,7 +7,7 @@ const QuestionContainer = styled.div`
   width: 80%;
   display: grid;
   height: 80vh;
-  grid-template-columns: 25% 37.5% 37.5%;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
 `;
 
