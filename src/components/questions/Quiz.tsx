@@ -14,28 +14,28 @@ const QuestionContainer = styled.div`
 const Option = styled.li`
   display: flex;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   margin-top: 4rem;
   transition: background-color 0.3s ease;
-  padding: 1rem;
+  padding: 2rem;
   width: fit-content;
 
   &:hover {
     border-width: 2px;
-    box-shadow: 0 0 10px gray;
-    border-radius: 10px;
+    box-shadow: 0 0 20px gray;
+    border-radius: 15px;
   }
 `;
 
 const OptionSelected = styled.li`
   display: flex;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: default;
   margin-top: 4rem;
   transition: background-color 0.3s ease;
-  padding: 1rem;
+  padding: 2rem;
   border-width: 2px;
   box-shadow: 0 0 10px gray;
   border-radius: 10px;
