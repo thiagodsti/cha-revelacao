@@ -17,6 +17,7 @@ const ModalContainer = styled.div`
   position: relative;
   align-items: end;
   justify-content: end;
+  padding: 10rem;
 `;
 
 interface ModalChallengeProps {
