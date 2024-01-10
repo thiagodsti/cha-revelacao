@@ -90,7 +90,7 @@ function QuestionsPage() {
                 (a) => a.questionId === question.questionId
               )}
               onAnimationEnd={() => {
-                if (question.questionId == "1") {
+                if (question.questionId == "6") {
                   handleOpenChallengeModal();
                 } else {
                   setHighlightCorrect(true);
