@@ -43,14 +43,14 @@ const OptionSelected = styled.li`
 `;
 
 const Question = styled.p`
-  font-size: 5rem;
+  font-size: 8rem;
   margin: 0;
   color: #d89d75;
   font-weight: bold;
 `;
 
 const OptionKey = styled.p`
-  font-size: 3rem;
+  font-size: 5rem;
   color: #f2c3a8;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,7 +58,7 @@ const OptionKey = styled.p`
 `;
 
 const OptionText = styled.p`
-  font-size: 2.6rem;
+  font-size: 4.6rem;
   color: #333;
 `;
 
@@ -147,7 +147,7 @@ const Quiz = ({
         <img
           style={{
             height: '60%',
-            paddingTop: '20%',
+            paddingTop: '30%',
           }}
           src="questions/babies.jpg"
         />
