@@ -3,20 +3,23 @@ import { Question, QuestionOption } from "../../pages/QuizPage";
 import { useEffect, useState } from "react";
 
 const QuestionContainer = styled.div`
+  align-items: center;
   width: 70%;
   display: grid;
   height: 80vh;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
 `;
 
 const Option = styled.li`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 1rem;
+  width: fit-content;
 
   &:hover {
     border-width: 2px;
@@ -27,15 +30,16 @@ const Option = styled.li`
 
 const OptionSelected = styled.li`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   border-radius: 5px;
   cursor: default;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 1rem;
   border-width: 2px;
   box-shadow: 0 0 10px gray;
   border-radius: 10px;
+  width: fit-content;
 `;
 
 const Question = styled.p`
@@ -129,15 +133,16 @@ const Quiz = ({
 
   return (
     <QuestionContainer>
-      <div style={{ background: 'pink', gridColumnStart: 1, gridColumnEnd: 2, height: 'inherit', textAlign: 'end', verticalAlign: 'center'}}>
+      <div style={{ alignSelf: 'center', gridColumnStart: 1, gridColumnEnd: 2, gridRowStart: 1, gridRowEnd: 3,  textAlign: 'end', width: 'fit-content', justifySelf: 'flex-end', height: 'inherit' }}>
       <img
           style={{
-            height: '60%',
+             height: '60%',
+            paddingTop: '90%',
           }}
           src="questions/babies.jpg"
         />
       </div>
-      <div style={{gridColumnStart: 2, gridColumnEnd: 4}}>
+      <div style={{gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 1, gridRowEnd: 3}}>
       <Question>{question.question}</Question>
         <Options>
           {question.options.map((option, index) => {
@@ -173,8 +178,10 @@ const Quiz = ({
             }
           })}
         </Options>
-        {selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}
-        </div>
+      </div>
+      <div style={{ gridRowStart: 2, gridRowEnd: 3, gridColumnStart: 3 }}>
+        {!selected && <AnimatedImage src={imageToShow} blink={isBlinking} />}  
+      </div>
     </QuestionContainer>
   );
 };
