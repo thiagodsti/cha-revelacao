@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const QuestionContainer = styled.div`
   align-items: center;
-  width: 70%;
+  width: 80%;
   display: grid;
   height: 80vh;
   grid-template-columns: 1fr 1fr 1fr;
