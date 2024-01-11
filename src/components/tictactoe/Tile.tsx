@@ -42,6 +42,7 @@ const ImageFrame = styled("div")`
   justify-content: center;
   align-items: center;
   width: 15.5rem;
+  height: 12.5rem;
   background-image: url("tictactoe/bg-tictactoe.jpg");
   background-size: cover;
   background-position: center;
@@ -53,16 +54,6 @@ const ImageFrame = styled("div")`
   @media (max-width: 768px) {
     width: 2.5rem;
     height: 2.5rem;
-  }
-`;
-
-const ImageBlank = styled("div")`
-  width: 12.5rem;
-  height: 12.5rem;
-  cursor: pointer;
-  @media (max-width: 768px) {
-    width: 1rem;
-    height: 1rem;
   }
 `;
 
@@ -83,16 +74,16 @@ function ImageTransition({ image, onClick }: ImageTransitionProps) {
   };
 
   return (
-    <ImageFrame>
-      {currentImage ? (
+    <ImageFrame
+      style={{ cursor: currentImage ? "default" : "pointer" }}
+      onClick={handleImageClick}>
+      {currentImage &&
         <Image
           isTransitioning={isTransitioning}
           style={{ cursor: "default" }}
           src={currentImage}
         />
-      ) : (
-        <ImageBlank onClick={() => handleImageClick()} />
-      )}
+      }
     </ImageFrame>
   );
 }
