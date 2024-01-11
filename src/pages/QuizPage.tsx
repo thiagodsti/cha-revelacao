@@ -33,7 +33,6 @@ export interface QuestionOption {
   key: string;
   option: string;
   isCorrect: boolean;
-  questionParentId: string;
 }
 
 function QuestionsPage() {

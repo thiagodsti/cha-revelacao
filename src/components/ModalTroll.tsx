@@ -11,7 +11,7 @@ interface BlinkTextProps {
 }
 
 const BlinkText = styled.p<BlinkTextProps>`
-  font-size: 10em;
+  font-size: 30em;
   text-align: center;
   animation: blinker 1.5s linear infinite;
   margin: 0;
@@ -65,10 +65,19 @@ function ModalTroll({ show }: ModalTrollProps) {
   }, [show, counter]);
 
   return (
-    <Modal show={show}>
+    <Modal show={true}>
       <CenteredContent>
         {!showMessage ? (
-          <BlinkText counterValue={counter}>{counter}</BlinkText>
+          <div style={{
+            height: '500px',
+            width: '500px',
+            textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+            <BlinkText counterValue={counter}>{counter}</BlinkText>
+          </div>
         ) : (
           <>
             <P>Did you really think it was going to be that easy?</P>
