@@ -276,32 +276,6 @@ export const questions = [
     ],
   },
   {
-    questionId: "11",
-    question: "What is the world record for the loudest baby cry?",
-    options: [
-      {
-        key: "a",
-        option: "85 decibels (like an alarm clock)",
-        isCorrect: false,
-      },
-      {
-        key: "b",
-        option: "110 decibels (like a rock concert)",
-        isCorrect: false,
-      },
-      {
-        key: "c",
-        option: "115 decibels (like a chainsaw)",
-        isCorrect: true,
-      },
-      {
-        key: "d",
-        option: "130 decibels (like a jet taking off)",
-        isCorrect: false,
-      },
-    ],
-  },
-  {
     questionId: "12",
     question: "On average, how many words does a baby understand at 12 months?",
     options: [
