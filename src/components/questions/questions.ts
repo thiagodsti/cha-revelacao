@@ -65,25 +65,25 @@ export const questions = [
     options: [
       {
         key: "a",
-        option: "every minute",
+        option: "Every minute",
         isCorrect: false,
         questionParentId: "3",
       },
       {
         key: "b",
-        option: "every 30 seconds",
+        option: "Every 30 seconds",
         isCorrect: false,
         questionParentId: "3",
       },
       {
         key: "c",
-        option: "every 3 seconds",
+        option: "Every 3 seconds",
         isCorrect: true,
         questionParentId: "3",
       },
       {
         key: "d",
-        option: "every second",
+        option: "Every second",
         isCorrect: false,
         questionParentId: "3",
       },
@@ -95,25 +95,25 @@ export const questions = [
     options: [
       {
         key: "a",
-        option: "hearing",
+        option: "Hearing",
         isCorrect: true,
         questionParentId: "4",
       },
       {
         key: "b",
-        option: "taste",
+        option: "Taste",
         isCorrect: false,
         questionParentId: "4",
       },
       {
         key: "c",
-        option: "smell",
+        option: "Smell",
         isCorrect: false,
         questionParentId: "4",
       },
       {
         key: "d",
-        option: "touch",
+        option: "Touch",
         isCorrect: false,
         questionParentId: "4",
       },
@@ -125,7 +125,7 @@ export const questions = [
     options: [
       {
         key: "a",
-        option: "at birth",
+        option: "At birth",
         isCorrect: false,
         questionParentId: "5",
       },
@@ -175,25 +175,85 @@ export const questions = [
         key: "a",
         option: "80",
         isCorrect: false,
-        questionParentId: "6",
+        questionParentId: "7",
       },
       {
         key: "b",
         option: "100",
         isCorrect: false,
-        questionParentId: "6",
+        questionParentId: "7",
       },
       {
         key: "c",
         option: "120",
         isCorrect: true,
-        questionParentId: "6",
+        questionParentId: "7",
       },
       {
         key: "d",
         option: "140",
         isCorrect: false,
-        questionParentId: "6",
+        questionParentId: "7",
+      },
+    ],
+  },
+  {
+    questionId: "8",
+    question: "Babies recognize their mother's voice at birth. How long before they recognize their father's voice?",
+    options: [
+      {
+        key: "a",
+        option: "3 days",
+        isCorrect: false,
+        questionParentId: "8",
+      },
+      {
+        key: "b",
+        option: "14 days",
+        isCorrect: true,
+        questionParentId: "8",
+      },
+      {
+        key: "c",
+        option: "28 days",
+        isCorrect: false,
+        questionParentId: "8",
+      },
+      {
+        key: "d",
+        option: "7 days",
+        isCorrect: false,
+        questionParentId: "8",
+      },
+    ],
+  },
+  {
+    questionId: "9",
+    question: "How many extra calories does a breastfeeding mother need per day?",
+    options: [
+      {
+        key: "a",
+        option: "Two cups of pistachio ice cream",
+        isCorrect: false,
+        questionParentId: "9",
+      },
+      {
+        key: "b",
+        option: "Cacio and pepe twice a day",
+        isCorrect: false,
+        questionParentId: "9",
+      },
+      {
+        key: "c",
+        option: "500",
+        isCorrect: true,
+        questionParentId: "9",
+      },
+      {
+        key: "d",
+        option: "25 pães de queijos.",
+        isCorrect: false,
+        questionParentId: "9",
       },
     ],
   },

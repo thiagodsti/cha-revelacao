@@ -49,11 +49,14 @@ function FinalResult({ totalCorrect, totalQuestions }: FinalResultProps) {
         totalCorrect > totalQuestions * 0.3 && (
           <p className="fade-in-message">
             You're almost there. Our assistance is still necessary!
+            <img src="confused.png" width={"40px"} height={"40px"} style={{marginLeft: '10px', marginTop: '10px'}} />
+
           </p>
         )}
       {totalCorrect <= totalQuestions * 0.3 && (
         <p className="fade-in-message">
           Oh no, it looks like we'll be frequenting this place more often.
+          <img src="omg.png" width={"40px"} height={"40px"} style={{marginLeft: '10px', marginTop: '10px'}} />
         </p>
       )}
       <p style={{fontSize: '2rem', padding: '20px'}}>

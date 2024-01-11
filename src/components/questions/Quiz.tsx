@@ -6,9 +6,9 @@ const QuestionContainer = styled.div`
   align-items: center;
   width: 80%;
   display: grid;
-  height: 80vh;
+  height: 70vh;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 20% 80%;
 `;
 
 const Option = styled.li`
@@ -44,7 +44,6 @@ const OptionSelected = styled.li`
 
 const QuestionTitle = styled.p`
   font-size: 3.5rem;
-  margin: 0;
   color: #d89d75;
   font-weight: bold;
 `;
@@ -58,7 +57,7 @@ const OptionKey = styled.p`
 `;
 
 const OptionText = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   color: #333;
 `;
 
