@@ -21,17 +21,18 @@ const Layout = styled("div")`
 `;
 
 function TicTacToe() {
+  const miniTulio = "tictactoe/mini-tulio2.jpg";
+  const miniLais = "tictactoe/mini-lais.jpg";
   const initialImages = [
-    "tictactoe/mini-tulio.jpg",
-    "tictactoe/mini-lais.jpg",
-    "tictactoe/mini-tulio.jpg",
-
-    "tictactoe/mini-tulio.jpg",
-    "tictactoe/mini-lais.jpg",
-    "tictactoe/mini-lais.jpg",
-    "tictactoe/mini-lais.jpg",
-    "tictactoe/mini-tulio.jpg",
-    "tictactoe/mini-tulio.jpg",
+    miniTulio,
+    miniLais,
+    miniTulio,
+    miniTulio,
+    miniLais,
+    miniLais,
+    miniLais,
+    miniTulio,
+    miniTulio,
   ];
 
   const [counter, setCounter] = useState(0);
