@@ -21,7 +21,7 @@ const Layout = styled("div")`
 `;
 
 function TicTacToe() {
-  const miniTulio = "tictactoe/mini-tulio2.jpg";
+  const miniTulio = "tictactoe/mini-tulio4.jpg";
   const miniLais = "tictactoe/mini-lais.jpg";
   const initialImages = [
     miniTulio,
