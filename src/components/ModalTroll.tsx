@@ -60,7 +60,7 @@ function ModalTroll({ show }: ModalTrollProps) {
       setShowMessage(true);
       setTimeout(() => {
         window.location.href = "/tictactoe";
-      }, 3000);
+      }, 5000);
     }
   }, [show, counter]);
 

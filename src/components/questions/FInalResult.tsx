@@ -3,19 +3,19 @@ import ModalTroll from "../ModalTroll";
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #f5f5dc;
-  color: #333333;
-  padding: 10px 20px;
+  background-color: #c6a969;
+  color: #ffffec;
+  padding: 20px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  text-decoration: none;
-  display: inline-block; 
+  text-transform: uppercase;
+  display: inline-block;
   transition: background-color 0.3s, color 0.3s;
-
+  latter-spacing: 4px;
   &:hover {
     background-color: #e6e6d3;
     color: #000000;
@@ -33,32 +33,37 @@ function FinalResult({ totalCorrect, totalQuestions }: FinalResultProps) {
     setShowModal(true);
   };
   return (
-    <div>
-      <div className="fade-in-message">
-        Você acertou {totalCorrect} de {totalQuestions} questões
-      </div>
+    <div style={{ textAlign: "center", width: "80%" }}>
       {totalCorrect > totalQuestions * 0.7 && (
-        <div className="fade-in-message">
-          Parabéns vocês não vão precisar de nós!
-        </div>
+        <>
+          <p className="fade-in-message" style={{ fontWeight: "bold" }}>
+            Congratulations,
+          </p>
+          <p className="fade-in-message">
+            It looks like you won't require our assistance!
+            <img src="party-blower.png" width={"40px"} height={"40px"} style={{marginLeft: '10px'}} />
+          </p>
+        </>
       )}
       {totalCorrect <= totalQuestions * 0.7 &&
         totalCorrect > totalQuestions * 0.3 && (
-          <div className="fade-in-message">
-            Estão na média, mas ainda precisam de nós!
-          </div>
+          <p className="fade-in-message">
+            You're almost there. Our assistance is still necessary!
+          </p>
         )}
       {totalCorrect <= totalQuestions * 0.3 && (
-        <div className="fade-in-message">
-          Pessoal vamos ter que vir aqui mais vezes.
-        </div>
+        <p className="fade-in-message">
+          Oh no, it looks like we'll be frequenting this place more often.
+        </p>
       )}
-      <Button style={{
-        textAlign: "center",
-      }} onClick={handleOpenModal}>Ver sexo do bebê</Button>
+      <p style={{fontSize: '2rem', padding: '20px'}}>
+        You correctly answer {totalCorrect} out of the {totalQuestions}{" "}
+        questions
+      </p>
+      <Button onClick={handleOpenModal}>Gender reveal</Button>
       <ModalTroll show={showModal} />
     </div>
-  )
+  );
 }
 
-export default FinalResult
+export default FinalResult;

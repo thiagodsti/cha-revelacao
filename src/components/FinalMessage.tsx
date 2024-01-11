@@ -9,14 +9,15 @@ function FinalMessage() {
         It is a...
       </TypingEffect>
       {showBigBaby && (
-        <h1
-          style={{
-            fontSize: "10em",
-            color: "gold",
-          }}
-        >
-          BABY
-        </h1>
+          <h1
+            style={{
+              fontSize: "10em",
+              color: "gold",
+              fontFamily: "lemon"
+            }}
+          >
+            Baby
+          </h1>
       )}
     </>
   );

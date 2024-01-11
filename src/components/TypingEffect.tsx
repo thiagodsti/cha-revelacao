@@ -18,7 +18,7 @@ const TypingText = styled.div.withConfig({
   blinkOnEnd: boolean;
   typingDuration: number;
 }>`
-  font-family: "Courier New", Courier, monospace;
+  font-family: "lemon";
   overflow: hidden;
   white-space: nowrap;
   font-size: 5em;
