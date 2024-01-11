@@ -16,8 +16,8 @@ const fadeOutInAnimation = keyframes`
 const Image = styled.img.withConfig({
   shouldForwardProp: (prop) => !["isTransitioning"].includes(prop),
 }) <{ isTransitioning: boolean }>`
-  width: 8rem;
-  height: 8rem;
+  width: 9rem;
+  height: 9rem;
   background-color: white;
   padding: 4px;
   cursor: pointer;
@@ -41,8 +41,7 @@ const ImageFrame = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14.5rem;
-  height: 12.5rem;
+  width: 15.5rem;
   background-image: url("tictactoe/bg-tictactoe.jpg");
   background-size: cover;
   background-position: center;
