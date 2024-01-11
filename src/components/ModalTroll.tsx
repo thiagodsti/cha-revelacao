@@ -65,7 +65,7 @@ function ModalTroll({ show }: ModalTrollProps) {
   }, [show, counter]);
 
   return (
-    <Modal show={true}>
+    <Modal show={show}>
       <CenteredContent>
         {!showMessage ? (
           <div style={{

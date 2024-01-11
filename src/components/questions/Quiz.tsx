@@ -8,7 +8,7 @@ const QuestionContainer = styled.div`
   display: grid;
   height: 70vh;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 20% 80%;
 `;
 
 const Option = styled.li`
